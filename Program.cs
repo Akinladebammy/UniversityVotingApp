@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using UniversityVotingApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add PostgreSQL connection
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 

@@ -8,8 +8,8 @@ namespace UniversityVotingApp.Model.Entities
         public Guid VoteId { get; set; }
 
         [Required]
-        public Guid StudentId { get; set; }
-        public Student Student { get; set; }
+        public Guid UserId { get; set; }  // Student voter
+        public User User { get; set; }
 
         [Required]
         public Guid CandidateId { get; set; }
@@ -22,9 +22,9 @@ namespace UniversityVotingApp.Model.Entities
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
         [Required]
-        public string EncryptedVote { get; set; }  // AES-256 encrypted data
+        public string EncryptedVote { get; set; }
 
         [Required]
-        public string VoteReceiptHash { get; set; } // SHA-256 proof
+        public string VoteReceiptHash { get; set; }
     }
 }

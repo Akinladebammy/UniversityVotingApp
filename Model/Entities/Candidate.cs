@@ -14,6 +14,8 @@ namespace UniversityVotingApp.Model.Entities
         [Required]
         [MaxLength(100)]
         public string Position { get; set; }  
+
+        [Required]
         public Guid ElectionId { get; set; }
         public Election Election { get; set; }
 

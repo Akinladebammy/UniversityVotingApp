@@ -1,21 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using UniversityVotingApp.Model.Enums;
 
 namespace UniversityVotingApp.Model.Entities
 {
     public class AuditLog
     {
         [Key]
-        public Guid LogId { get; set; }
+        public Guid AuditLogId { get; set; }
 
         [Required]
-        public string Action { get; set; }  
+        public Guid UserId { get; set; }
 
         [Required]
+        public AuditAction Action { get; set; }
+
+        [MaxLength(200)]
+        public string Description { get; set; }
+
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
-
-        [Required]
-        public string Actor { get; set; }  
-
-        public string Details { get; set; }  
     }
 }
